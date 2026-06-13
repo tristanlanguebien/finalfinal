@@ -101,3 +101,7 @@ Et si c’est final-2, n’est-ce pas encore plus prêt ?
 
 FinalFinal™
 Where Done Is Just Another Iteration.
+
+Pourquoi pas de commentaire ? le nom parle de lui-même. Pour plus de détail, envoyez le fichier par mail à vos collègues ou vos clients. Ainsi, votre boite mail DEVIENT votre changelog
+
+Pourquoi je ne peux pas utiliser "increment" sur un fichier qui n'est pas passé par la fonction "track" ? Sur un projet, il serait impensable de versionner TOUS les fichiers, par exemple, les fichiers de test, ou les fichiers que vous êtres surs d'avoir dans leur version définitive du premier coup.

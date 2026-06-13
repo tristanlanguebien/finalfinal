@@ -1,6 +1,6 @@
 import shutil
 from pathlib import Path
-from random import choice
+from random import choice, random
 
 
 class WhatAreYouTringToDoError(Exception): ...
@@ -46,7 +46,7 @@ RETAKE_SUFFIXES = [
     "nah",
     "nevermind",
 ]
-RETAKEDONE_SUFFIXES = ["done", "ok", "fixed", "settled"]
+FIX_SUFFIXES = ["done", "ok", "fixed", "settled"]
 DONE_SUFFIXES = [
     "done",
     "ok",
@@ -212,6 +212,10 @@ def get_latest(path: Path) -> Path:
         and file.suffix == original_file.suffix
     ]
     files.sort(key=lambda x: len(x.name))
+    if not files:
+        raise WhatAreYouTringToDoError(
+            f'No file with prefix "{original_file.stem}" could not be found'
+        )
     return files[-1]
 
 
@@ -228,21 +232,45 @@ def get_incremented_path(
     if custom_suffix:
         return add_suffix(path, [custom_suffix])
 
-    # Add certitude suffif
+    # construct word list
+    if increment_type == "wip":
+        word_list = WIP_SUFFIXES
+    elif increment_type == "retake":
+        word_list = RETAKE_SUFFIXES
+    elif increment_type == "fix":
+        word_list = FIX_SUFFIXES
+    elif increment_type == "done":
+        word_list = DONE_SUFFIXES
+    elif increment_type == "final":
+        word_list = FINAL_SUFFIXES
+
+    # Add certitude suffix
     if certainty_level < 1:
-        path = add_suffix(path, WEAK_CERTITUDE_MARKERS)
-    elif certainty_level > 1:
-        path = add_suffix(path, STRONG_CERTITUDE_MARKERS)
+        certainty_word = choice(WEAK_CERTITUDE_MARKERS)
+        word_list = [f"{certainty_word} {i}" for i in word_list]
+    if certainty_level > 1:
+        certainty_word = choice(STRONG_CERTITUDE_MARKERS)
+        word_list = [f"{certainty_word} {i}" for i in word_list]
 
     # Add main suffix
     if increment_type == "wip":
-        return add_suffix(path, WIP_SUFFIXES)
+        if random() < 0.5:
+            path = add_suffix(path, word_list)
+        else:
+            stem = path.stem
+            if stem[-1].isdigit() and certainty_level == 1:
+                path = path.with_stem(stem[:-1] + str(int(stem[-1]) + 1))
+            else:
+                path = path.with_stem(stem + "2")
+        return path
     if increment_type == "retake":
-        return add_suffix(path, RETAKE_SUFFIXES)
+        return add_suffix(path, word_list)
+    if increment_type == "fix":
+        return add_suffix(path, word_list)
     if increment_type == "done":
-        return add_suffix(path, DONE_SUFFIXES)
+        return add_suffix(path, word_list)
     if increment_type == "final":
-        return add_suffix(path, FINAL_SUFFIXES)
+        return add_suffix(path, word_list)
 
     return path
 
@@ -262,7 +290,10 @@ def increment(
         certainty_level=certainty_level,
         custom_suffix=custom_suffix,
     )
-    print(new_path)
+    if overwrite:
+        path.rename(new_path)
+    else:
+        shutil.copy(path, new_path)
     return new_path
 
 
@@ -276,4 +307,8 @@ def to_pdf(path: Path) -> Path: ...
 
 if __name__ == "__main__":
     # track("./sandbox/test.txt")
-    increment(r"D:\gitlab\finalfinal\sandbox\test.txt")
+    increment(
+        r"D:\gitlab\finalfinal\sandbox\test.txt",
+        increment_type="wip",
+        certainty_level=1,
+    )

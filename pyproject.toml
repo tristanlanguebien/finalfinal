@@ -7,7 +7,7 @@ authors = [
     { name = "tlanguebien", email = "tlanguebien@gmail.com" }
 ]
 requires-python = ">=3.9"
-dependencies = []
+dependencies = ["reportlab"]
 
 [project.scripts]
 finalfinal = "finalfinal:main"

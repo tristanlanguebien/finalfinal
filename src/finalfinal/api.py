@@ -96,8 +96,8 @@ def random_word(word_list: list[str]) -> str:
     return word
 
 
-def capitalize(word: str) -> str:
-    return word.capitalize()
+def upper(word: str) -> str:
+    return word.upper()
 
 
 def lower(word: str) -> str:
@@ -109,15 +109,17 @@ def title(word: str) -> str:
 
 
 def camel_case(word: str) -> str:
-    return word.title()
+    word = word.title()
+    return word[:1].lower() + word[1:]
 
 
 def randomize_casing(word: str) -> str:
-    return word
+    callbacks = [upper, lower, title, camel_case]
+    return choice(callbacks)(word)
 
 
 def randomize_separators(word: str) -> str:
-    return word
+    return word.replace(" ", random_separator())
 
 
 def get_metadata_file(path: Path | str) -> Path:
@@ -125,19 +127,38 @@ def get_metadata_file(path: Path | str) -> Path:
     return path.with_name("important_notes_DONT_DELETE.docx")
 
 
+def add_suffix(path: Path, word_list: list[str]) -> Path:
+    name = path.stem + random_separator() + random_word(word_list) + path.suffix
+    return path.with_name(name)
+
+
+def is_tracked(path: Path) -> bool:
+    metadata_path = get_metadata_file(path)
+    if not metadata_path.exists():
+        return False
+    return True
+
+
 def track(path: Path | str):
-    path = Path(path)
+    path = Path(path).resolve()
+    metadata_path = get_metadata_file(path)
+    if is_tracked(path):
+        print(f"File {path.name} is already tracked by FinalFinal™")
+        return
+
+    path = add_suffix(path, TRACKING_SUFFIXES)
+
     if not path.exists():
         path.parent.mkdir(exist_ok=True, parents=True)
         path.write_text("")
 
-    metadata_path = get_metadata_file(path)
     if not metadata_path.exists():
         metadata_path.write_text(path.name)
 
 
 def increment(
     path: Path,
+    overwrite=True,
     is_final=False,
     custom_suffix: str | None = None,
     certainty_level: int = 1,
@@ -152,3 +173,7 @@ def prune(path: Path) -> Path:
 
 
 def to_pdf(path: Path) -> Path: ...
+
+
+if __name__ == "__main__":
+    track("./sandbox/test.txt")

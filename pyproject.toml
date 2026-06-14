@@ -1,13 +1,19 @@
 [project]
 name = "finalfinal"
-version = "0.1.0"
-description = "Add your description here"
+version = "1.0.0"
+description = "FinalFinal™ is a file versioning system that encodes the project history directly into the filename, where it obviously belongs."
 readme = "README.md"
 authors = [
     { name = "tlanguebien", email = "tlanguebien@gmail.com" }
 ]
 requires-python = ">=3.9"
 dependencies = ["reportlab"]
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["filesystem", "version control"]
+
+[project.urls]
+Homepage = "https://github.com/tristanlanguebien/finalfinal"
 
 [project.scripts]
 finalfinal = "finalfinal:main"

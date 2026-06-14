@@ -130,27 +130,53 @@ pip install finalfinal
 
 ## Quick Start
 
-```python
-from finalfinal import track, increment, reset, to_pdf, IncrementType
-
-# Begin the cycle
-path = track("presentation.pptx")
-
-# Do some work (allegedly)
-path = increment(path, IncrementType.WIP)
-
-# It's ready (it's not ready)
-path = increment(path, IncrementType.FINAL, certainty_level=2)
-
-# Client feedback received
-path = increment(path, IncrementType.RETAKE)
-
-# Archive the evidence. Start fresh. Find peace.
-path = reset(path)
-
-# Generate the PDF nobody will read but everyone will ask for
-to_pdf(path)
+```bash
+finalfinal --path brief.txt --track
+>>> "brief START.txt"
 ```
+
+```bash
+finalfinal --path brief.txt --increment
+>>> "brief START-updated.txt"
+```
+
+```bash
+finalfinal --path brief.txt --increment --increment_type done --certainty_level 0
+>>> "brief START-updated-Not_Far_From_Decent.txt"
+```
+
+```bash
+finalfinal --path brief.txt --increment --increment_type final --certainty_level 99
+>>> "brief START-updated-Not_Far_From_Decent-ABSOLUTELYDEFINITIVE.txt"
+```
+
+```bash
+finalfinal --path brief.txt --export_pdf
+>>> "brief_changelog.pdf"
+```
+
+> FinalFinal™ Changelog
+> File: brief.txt
+> Generated: 2026-06-14 at 11:48:08
+> The following represents the complete audit trail of this file. It should not be used in a court of law.
+> 
+> Version 1: brief START.txt
+> A human being interacted with this file on 2026-06-14 at 11:36:34. Motivation: unknown.
+> 
+> Version 2: brief START-updated.txt
+> This version exists because someone, somewhere, was not satisfied with the previous one.
+> 
+> Version 3: brief START-updated-Not_Far_From_Decent.txt
+> The file was improved, allegedly, on 2026-06-14 at 11:46:36.
+> 
+> Version 4: brief START-updated-Not_Far_From_Decent-ABSOLUTELYDEFINITIVE.txt
+> Edits were performed. Whether they were improvements is a matter of perspective.
+
+```bash
+finalfinal --path brief.txt --reset
+>>> brief-NEW_LEAF.txt
+```
+
 
 ---
 

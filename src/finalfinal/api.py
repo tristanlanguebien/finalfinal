@@ -969,7 +969,7 @@ def to_pdf(path: Path | str, pdf_path: Path | str | None = None) -> Path:
     return pdf_path
 
 
-if __name__ == "__main__":
+def _parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--path", required=True, type=Path)
     action_group = parser.add_mutually_exclusive_group()
@@ -1000,3 +1000,7 @@ if __name__ == "__main__":
         to_pdf(args.path, args.pdf_file)
     if args.reset:
         reset(path=args.path)
+
+
+if __name__ == "__main__":
+    _parse_args()

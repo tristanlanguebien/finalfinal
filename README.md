@@ -155,21 +155,21 @@ finalfinal --path brief.txt --export_pdf
 >>> "brief_changelog.pdf"
 ```
 
-> FinalFinal™ Changelog
-> File: brief.txt
-> Generated: 2026-06-14 at 11:48:08
-> The following represents the complete audit trail of this file. It should not be used in a court of law.
+> FinalFinal™ Changelog  
+> File: brief.txt  
+> Generated: 2026-06-14 at 11:48:08  
+> The following represents the complete audit trail of this file. It should not be used in a court of law.  
 > 
-> Version 1: brief START.txt
+> Version 1: brief START.txt  
 > A human being interacted with this file on 2026-06-14 at 11:36:34. Motivation: unknown.
 > 
-> Version 2: brief START-updated.txt
+> Version 2: brief START-updated.txt  
 > This version exists because someone, somewhere, was not satisfied with the previous one.
 > 
-> Version 3: brief START-updated-Not_Far_From_Decent.txt
+> Version 3: brief START-updated-Not_Far_From_Decent.txt  
 > The file was improved, allegedly, on 2026-06-14 at 11:46:36.
 > 
-> Version 4: brief START-updated-Not_Far_From_Decent-ABSOLUTELYDEFINITIVE.txt
+> Version 4: brief START-updated-Not_Far_From_Decent-ABSOLUTELYDEFINITIVE.txt  
 > Edits were performed. Whether they were improvements is a matter of perspective.
 
 ```bash

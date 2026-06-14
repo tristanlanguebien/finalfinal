@@ -2,7 +2,7 @@
 ### *Where Done Is Just Another Iteration.*
 
 **FinalFinal™** is a file versioning system that encodes the project history directly into the filename, where it obviously belongs.
-No Git. No SVN. **The filename is the changelog.**
+No Git, no SVN: **The filename is the changelog.**
 
 ## Use Case
 
@@ -130,25 +130,40 @@ pip install finalfinal
 
 ## Quick Start
 
+The first step is to track the file.
+
+> [!WARNING]
+> When tracking a file, a metadata file ``important_notes_DONT_DELETE.docx`` will be created. 
+> Do not ask for a more robust system: we already wrote DONT_DELETE in uppercase, YOU are responsible if the versioning framework breaks.
+
 ```bash
 finalfinal --path brief.txt --track
 >>> "brief START.txt"
 ```
+
+Once the file is tracked, you can start using the increment feature.
 
 ```bash
 finalfinal --path brief.txt --increment
 >>> "brief START-updated.txt"
 ```
 
+You can adjust the suffix by providing an `increment_type`, and nuance emotional feedback thanks to the `certainty_level` option.
+
 ```bash
+# Available increment types are: wip, done, retake, fix, final. Defaults to wip
 finalfinal --path brief.txt --increment --increment_type done --certainty_level 0
 >>> "brief START-updated-Not_Far_From_Decent.txt"
 ```
+
+The default certainty level is 1. Below 1 means "unsure", above 1 means "reckless confidence.
 
 ```bash
 finalfinal --path brief.txt --increment --increment_type final --certainty_level 99
 >>> "brief START-updated-Not_Far_From_Decent-ABSOLUTELYDEFINITIVE.txt"
 ```
+
+Keep everyone up to date thanks to the PDF Export feature.
 
 ```bash
 finalfinal --path brief.txt --export_pdf
@@ -172,17 +187,18 @@ finalfinal --path brief.txt --export_pdf
 > Version 4: brief START-updated-Not_Far_From_Decent-ABSOLUTELYDEFINITIVE.txt  
 > Edits were performed. Whether they were improvements is a matter of perspective.
 
+When the filename has grown to a length that violates several international conventions, it is time to reset (the metadata file is preserved. It has seen too much to be discarded.)
+
 ```bash
 finalfinal --path brief.txt --reset
 >>> brief-NEW_LEAF.txt
 ```
 
-
 ---
 
 <div align="center">
 
-**FinalFinal™** — *Because the alternative is learning to use a decent version control system.*
+**FinalFinal™** - *Because the alternative is learning to use a decent version control system.*
 
 *© FinalFinal™ Industries. All versions reserved. None of them final.*
 

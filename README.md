@@ -39,7 +39,7 @@ Are you unsure about your changes? Quietly confident? Dangerously overcommitted?
 
 ### Reset
 
-At some point, your filename will be ungodly long. This is not a flaw, just a sign that the project has lived. But even FinalFinal™ acknowledges that there are limits to human endurance.
+At some point, your filename will be ungodly long. This is not a flaw, just a sign that the project has lived.
 
 The `reset` feature archives everything into a tidy `_OLD` folder (or `BEFORE_THE_INCIDENT`, if you prefer) and starts you fresh with one of our curated restart suffixes. You may then begin making the same mistakes again.
 
@@ -74,7 +74,7 @@ FinalFinal™ is compliant with the following standards:
 
 - **ISO-Good-Enough** (validated by nobody in particular)
 - **Internally Ratified in a Meeting** (see the invite calendar for proof)
-- **I.W.O.M.C.** *(It Works On My Computer)* (the gold standard of pre-delivery testing)
+- **I.W.O.M.C.** (It Works On My Computer, the gold standard of pre-delivery testing)
 
 > [!CAUTION]
 > FinalFinal™ does not implement access control, version locking, encryption, or conflict resolution. These are considered premium concerns for a future definitive edition of FinalFinal™.
@@ -83,22 +83,19 @@ FinalFinal™ is compliant with the following standards:
 
 > *"Since adopting `Budget_2025_v4_final_FINAL_ok2_USETHIS.xlsx`, we have reduced version conflicts by 0% but our perceived strategic alignment has increased by 300%."*
 >
-> - A multinational corporation
+> -- A multinational corporation
 
 
 > *"We spent a long time choosing between Git and FinalFinal™. What ultimately convinced us to go with FinalFinal™ was the price."*
 >
-> - A cash-strapped CEO
+> -- A cash-strapped CEO
 
 > *"Before FinalFinal™, I wasn't versioning my files at all. Now I am. Sometimes I wonder if things were better before."*
 >
-> — A weekend entrepreneur
+> -- A weekend entrepreneur
 
 
 ## Roadmap
-
-> [!NOTE]
-> FinalFinal™'s roadmap is itself subject to versioning. The following items are considered `final` until further notice.
 
 - **PowerPoint changelog export**: Following the overwhelming success of the PDF exporter and numerous requests from the field, our team is working tirelessly to deliver changelog exports in `.pptx` format. This will allow version history to be presented to the team with full slide transitions.
 

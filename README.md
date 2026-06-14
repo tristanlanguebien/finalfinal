@@ -156,7 +156,7 @@ to_pdf(path)
 
 <div align="center">
 
-**FinalFinal™** — *Because the alternative is learning Git.*
+**FinalFinal™** — *Because the alternative is learning to use a decent version control system.*
 
 *© FinalFinal™ Industries. All versions reserved. None of them final.*
 

@@ -156,7 +156,7 @@ finalfinal --path brief.txt --increment --increment_type done --certainty_level 
 >>> "brief START-updated-Not_Far_From_Decent.txt"
 ```
 
-The default certainty level is 1. Below 1 means "unsure", above 1 means "reckless confidence.
+The default certainty level is 1. Below 1 means "unsure", above 1 means "reckless confidence".
 
 ```bash
 finalfinal --path brief.txt --increment --increment_type final --certainty_level 99
@@ -198,7 +198,7 @@ finalfinal --path brief.txt --reset
 
 <div align="center">
 
-**FinalFinal™** - *Because the alternative is learning to use a decent version control system.*
+**FinalFinal™** - *Because the alternative is learning to use a real version control system.*
 
 *© FinalFinal™ Industries. All versions reserved. None of them final.*
 

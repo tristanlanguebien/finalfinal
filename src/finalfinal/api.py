@@ -36,7 +36,7 @@ import shutil
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from random import choice, random
+from random import choice, random, randint
 from typing import Optional
 
 from reportlab.lib.pagesizes import A4
@@ -98,6 +98,9 @@ FINAL_SUFFIXES: list[str] = [
     "use this",
     "farewell",
     "for posterity",
+    "def2",
+    "defgood",
+    "defgood2",
 ]
 
 WIP_SUFFIXES: list[str] = [
@@ -181,6 +184,20 @@ FIX_SUFFIXES: list[str] = [
     "not terrible",
     "passable",
     "yolo",
+    "to scale",
+    "with yellow layer",
+    "with cyan layer",
+    "with magenta layer",
+    "with black layer",
+    "with red layer",
+    "with green layer",
+    "with blue layer",
+    "with alpha layer",
+    "with linked media",
+    "with fonts",
+    "without watermark",
+    "with bigger logo",
+    "cat input cleaned",
 ]
 
 DONE_SUFFIXES: list[str] = [
@@ -207,6 +224,8 @@ DONE_SUFFIXES: list[str] = [
     "not my problem anymore",
     "their problem now",
     "launching",
+    "ready to print",
+    "to prepress",
 ]
 
 WEAK_CERTITUDE_MARKERS: list[str] = [
@@ -253,6 +272,7 @@ STRONG_CERTITUDE_MARKERS: list[str] = [
     "positively",
     "guaranteed",
     "beyond doubt",
+    "10000%",
 ]
 
 RESTART_SUFFIXES: list[str] = [
@@ -708,12 +728,14 @@ def get_incremented_path(
         return add_suffix(path, [custom_suffix])
 
     word_list = list(_SUFFIX_MAP[increment_type])
-
     if certainty_level < 1:
         certainty_word = choice(WEAK_CERTITUDE_MARKERS)
         word_list = [f"{certainty_word} {w}" for w in word_list]
     elif certainty_level > 1:
-        certainty_word = choice(STRONG_CERTITUDE_MARKERS)
+        if randint(0, 1000000) == 1:
+            certainty_word = choice([])
+        else:
+            certainty_word = choice(STRONG_CERTITUDE_MARKERS)
         word_list = [f"{certainty_word} {w}" for w in word_list]
 
     if increment_type == IncrementType.WIP and random() < 0.37569:

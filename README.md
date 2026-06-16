@@ -99,7 +99,7 @@ FinalFinal™ is compliant with the following standards:
 
 - **PowerPoint changelog export**: Following the overwhelming success of the PDF exporter and numerous requests from the field, our team is working tirelessly to deliver changelog exports in `.pptx` format. This will allow version history to be presented to the team with full slide transitions.
 
-- **Variations**: The introduction of a branching concept. Functionally similar to Git branches, but implemented via subfolders for a better user experience.
+- **Variations**: The introduction of a branching concept. Functionally similar to Git branches, but implemented via subfolders for a better user experience. Alternatively, a new suffix type could be used to avoid having to learn how subfolders work. To an extent, this could aleviate typing errors, because the word "brachnes" is notably to type correctly. 
 
 
 ## FAQ
@@ -119,7 +119,7 @@ This is called a *collaborative version event*. Both versions are valid. The lon
 
 ## Installation & Deployment
 
-Download the source code and unzip into your project directory. FinalFinal is supported by all modern deployment systems (dropbox, google drive, wetransfer...)
+Download the source code from [Google Drive](https://drive.google.com/drive/folders/1WDDO578-PPSJx3a5JZki0_sjJXCLtoCe?usp=drive_link) and unzip into your project directory. FinalFinal is supported by all modern deployment systems (dropbox, google drive, wetransfer...)
 
 Alternatively, you can use pip or uv, even if it isn't frankly the spirit of the thing.
 
@@ -193,6 +193,10 @@ When the filename has grown to a length that violates several international conv
 finalfinal --path brief.txt --reset
 >>> brief-NEW_LEAF.txt
 ```
+
+## Contributing
+
+Send me your ideas on Discord, i'll consider implementing them.
 
 ---
 
